@@ -1,0 +1,13 @@
+version: '3'
+services:
+
+  mysql:
+    image: mysql/mysql-server:latest
+    container_name: data
+    environment:
+      MYSQL_USER: 'root'
+      MYSQL_PASSWORD: '123'
+      MYSQL_DATABASE: 'mysql_database'
+      MYSQL_ROOT_PASSWORD: '123'
+    ports:
+      - "3306:3306"
