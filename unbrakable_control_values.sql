@@ -30,26 +30,27 @@ values ('100'),
        ('300');
 
 insert into `interface_types` (`suffix`, `description`)
-values ('LS', 'Pipline weld'),
+values ('LS', 'Pipeline weld'),
        ('BP', 'After cut'),
        ('ZX', 'Overwhelming junction');
 
 insert into `weld_types` (`type`)
-values ('PD + М300'),
-       ('М300'),
+values ('PD + M300'),
+       ('M300'),
        ('InnerSheld');
+
 
 insert into `verdicts` (`verdict`)
 values ('-not controlled-'),
        ('DONE'),
-       ('Repeat control'),
        ('Need repair'),
+       ('Repeat control'),
        ('CUT IT');
 
-insert into `welders_marks` (`mark`)
-values ('C1N0'),
-       ('LF2R'),
-       ('12F4');
+insert into `welders_marks` (`mark`, `description`)
+values ('C1N0', 'auto-welder group'),
+       ('LF2R', 'single hand-made. Ivanov Nick'),
+       ('12F4', 'repair expert - Petrovich');
 
 
 insert into joints (`km_num_id`,
@@ -74,5 +75,28 @@ values ('1', '1', '1', '2', '1'),
        ('4', '3', '1', '2', '1'),
        ('4', '4', '1', '2', '1'),
        ('4', '5', '1', '2', '1');
+
+insert into vik_defects (`joint_id`,
+                         `position`,
+                         `encryption`,
+                         `verdict_id`,
+                         notation)
+values ('1', '100-120', 'Fc-2,0<0,5', '2', ''),
+       ('1', '150-290', 'Fa-90>75', '4', 'To many defects'),
+       ('1', '310-315', 'Fc-1,5<0,5', '2', ''),
+       ('2', '0-0', '', '2', ''),
+       ('2', '230-250', 'Ff-1,0<1,0', '2', ''),
+       ('3', '230-250', 'Aa-4,5>2,5', '3', 'Требуется подтверждение результата'),
+       ('4', '0-0', '', '2', ''),
+       ('5', '0-0', '', '2', '');
+
+insert into vik_opinions (`joint_id`,
+                          `vik_created_at`,
+                          `opinion_verdict_id`)
+values ('1', '2020-01-01', '2'),       ('2', '2020-01-02', '4'),
+       ('3', '2020-01-03', '3'),
+       ('4', '2020-01-04', '2'),
+       ('5', '2020-01-05', '2');
+
 
 
